@@ -57,7 +57,7 @@ const DUMMY_EXPENSES = [
     description: "weekly grocery shopping",
     amount: 183.16,
     date: new Date("2023-12-02"),
-  }
+  },
 ];
 
 function ExpensesOutput({ expenses, expensesPeriod }) {
