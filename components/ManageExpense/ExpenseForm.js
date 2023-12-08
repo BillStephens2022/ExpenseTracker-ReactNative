@@ -19,7 +19,14 @@ function ExpenseForm({ submitButtonLabel, onCancel, onSubmit }) {
     });
   }
 
-  function submitHandler() {}
+  function submitHandler() {
+    const expenseData = {
+        amount: +inputValues.amount, // '+' converts the string from the input to a number
+        date: new Date(inputValues.date), // converts the inputted date string to a date object
+        description: inputValues.description
+    };
+    onSubmit(expenseData);
+  }
 
   
 
