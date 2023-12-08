@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
         padding: 24,
         backgroundColor: GlobalStyles.colors.primary700,
     }
-})
+});
