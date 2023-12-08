@@ -27,10 +27,18 @@ function ExpenseForm({ submitButtonLabel, onCancel, onSubmit, defaultValues }) {
         date: new Date(inputValues.date), // converts the inputted date string to a date object
         description: inputValues.description
     };
+
+    const amountIsValid = !isNaN(expenseData.amount) && expenseData.amount > 0;
+    const dateIsValid = expenseData.date.toString() !== "Invalid Date";
+    const descriptionIsValid = expenseData.description.trim().length > 0;
+    
+    if (!amountIsValid || dateIsValid || descriptionIsValid) {
+        // show feedback
+        return;
+    }
+
     onSubmit(expenseData);
   }
-
-  
 
   return (
     <View style={styles.form}>
