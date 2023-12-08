@@ -32,6 +32,7 @@ function ExpenseForm({ submitButtonLabel, onCancel, onSubmit, defaultValues }) {
   }
 
   function submitHandler() {
+    
     const expenseData = {
       amount: +inputs.amount.value, // '+' converts the string from the input to a number
       date: new Date(inputs.date.value), // converts the inputted date string to a date object
@@ -42,7 +43,7 @@ function ExpenseForm({ submitButtonLabel, onCancel, onSubmit, defaultValues }) {
     const dateIsValid = expenseData.date.toString() !== "Invalid Date";
     const descriptionIsValid = expenseData.description.trim().length > 0;
 
-    if (!amountIsValid || dateIsValid || descriptionIsValid) {
+    if (!amountIsValid || !dateIsValid || !descriptionIsValid) {
       setInputs((currentInputs) => {
         return {
           amount: { value: currentInputs.amount.value, isValid: amountIsValid },
@@ -55,7 +56,7 @@ function ExpenseForm({ submitButtonLabel, onCancel, onSubmit, defaultValues }) {
       });
       return;
     }
-
+    
     onSubmit(expenseData);
   }
 
